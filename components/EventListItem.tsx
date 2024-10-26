@@ -2,9 +2,20 @@ import React from 'react'
 import { Text,View ,Image} from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 
-const EventListItem = ({event}:any) => {
+interface Event {
+  datetime: string;
+  title: string;
+  location: string;
+  image?: string;
+}
+
+interface EventListItemProps {
+  event: Event;
+}
+
+const EventListItem: React.FC<EventListItemProps> = ({event})=> {
   return (
-    <View className='p-6'>
+    <View className='p-6 border-b border-slate-200'>
         <View className='flex-row mb-4'>
           <View className='flex-1'>
             <Text className='text-lg font-medium uppercase text-amber-800 mb-1'>{event.datetime}</Text>
