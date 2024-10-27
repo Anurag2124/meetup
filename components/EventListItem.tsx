@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { Link } from 'expo-router';
 
 interface Event {
+  id: string;
   datetime: string;
   title: string;
   location: string;
@@ -16,6 +17,7 @@ interface EventListItemProps {
 }
 
 const EventListItem: React.FC<EventListItemProps> = ({event})=> {
+ 
   return (
     <Link href={`/${event.id}`} asChild>
       <Pressable className='p-6 border-b border-slate-200'>
