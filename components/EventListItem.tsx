@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text,View ,Image} from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import dayjs from 'dayjs';
 
 interface Event {
   datetime: string;
@@ -18,7 +19,7 @@ const EventListItem: React.FC<EventListItemProps> = ({event})=> {
     <View className='p-6 border-b border-slate-200'>
         <View className='flex-row mb-4'>
           <View className='flex-1'>
-            <Text className='text-lg font-medium uppercase text-amber-800 mb-1'>{event.datetime}</Text>
+            <Text className='text-lg font-medium uppercase text-amber-800 mb-1'>{dayjs(event.datetime).format('ddd, D MMM - hh:mm a')}</Text>
             <Text className='text-xl font-semibold mb-0.5' numberOfLines={2}>{event.title}</Text>
             <Text className='text-gray-700'>{event.location}</Text>
           </View>
